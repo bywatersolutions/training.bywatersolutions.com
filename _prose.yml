@@ -1,0 +1,36 @@
+prose:
+  rooturl: '_posts'
+  siteurl: 'http://training.bwsdocker1.bywatersolutions.com'
+  media: 'media'
+  ignore:
+    - index.md
+    - _config.yml
+    - /_layouts
+    - /_includes
+  metadata:
+    _posts:
+      - name: "layout"
+        field:
+          label: "layout"
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          label: "Title"
+          element: "text"
+          value: ""
+      - name: "opac"
+        field:
+          label: "OPAC Link"
+          element: "text"
+          placeholder: "http://opac.lib.org"
+      - name: "staff"
+        field:
+          label: "Staff Link"
+          element: "text"
+          placeholder: "http://staff.lib.org"
+      - name: "educator"
+        field:
+          label: "Educator"
+          element: "text"
+          placeholder: "Frodo Baggins"

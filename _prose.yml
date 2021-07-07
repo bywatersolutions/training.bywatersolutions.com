@@ -8,7 +8,7 @@ prose:
     - /_layouts
     - /_includes
   metadata:
-    _posts:
+    _pages:
       - name: "layout"
         field:
           label: "layout"
@@ -34,3 +34,8 @@ prose:
           label: "Educator"
           element: "text"
           placeholder: "Frodo Baggins"
+      - name: "permalink"
+        field:
+          label: "Link"
+          element: "text"
+          placeholder: "/shortname"

@@ -1,5 +1,5 @@
 prose:
-  rooturl: '_posts'
+  rooturl: '_pages'
   siteurl: 'http://training.bwsdocker1.bywatersolutions.com'
   media: 'media'
   ignore:

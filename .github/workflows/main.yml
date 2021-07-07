@@ -1,0 +1,47 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Where am I?
+      run: echo $PWD
+
+    - name: Build the site
+      run: docker run --rm --volume="$PWD:/srv/jekyll" -e JEKYLL_UID=$UID jekyll/jekyll:4.2.0 jekyll build
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: built-jekyll
+        path: _site
+
+  publish:
+    name: Publish
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - uses: actions/download-artifact@v2
+      with:
+        name: built-jekyll
+        path: _site
+
+    - name: Display structure of downloaded files
+      run: ls -R
+
+    - name: Login to quay.io
+      uses: docker/login-action@v1
+      with:
+        registry: quay.io
+        username: ${{ secrets.QUAY_USERNAME }}
+        password: ${{ secrets.QUAY_PASSWORD }}
+
+    - name: Build docker image
+      run: docker build -t quay.io/bywatersolutions/training:latest .
+
+    - name: Push to quay.io
+      run: docker push quay.io/bywatersolutions/training

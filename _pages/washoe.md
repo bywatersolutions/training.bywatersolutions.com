@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: koha
 title: Washoe County Law Library
 opac: http://washoelawlibrary.bywatersolutions.com/
 staff: http://staff-washoelawlibrary.bywatersolutions.com/

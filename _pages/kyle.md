@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: koha
 title: Kyle's Library
 opac: http://kyleslib.bywatersolutions.com/
 staff: http://staff-kyleslib.bywatersolutions.com/
